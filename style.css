@@ -2249,3 +2249,104 @@ body.light-mode .particle {
         transform: translateY(-10vh);
     }
 }
+/* ===================================== */
+/* CORREÇÃO CERTIFICADO MOBILE */
+/* ===================================== */
+
+#certificate {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.certificate-content {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Evita estouro de texto */
+.certificate-content h1,
+.certificate-content h2,
+.certificate-content h3,
+.certificate-content p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Ajuste responsivo forte */
+@media (max-width: 768px) {
+
+    #certificate {
+        padding: 0 15px;
+    }
+
+    .certificate-content {
+        padding: 25px 15px;
+        border-radius: 20px;
+    }
+
+    .certificate-content h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .certificate-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .certificate-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .certificate-content p {
+        font-size: 0.95rem;
+    }
+}
+/* ===================================== */
+/* HERO PANEL - CENTRALIZAR PRODUÇÃO */
+/* ===================================== */
+
+.hero-panel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* garante alinhamento normal dos dois primeiros */
+.hero-panel .panel-card:nth-child(1),
+.hero-panel .panel-card:nth-child(2) {
+    width: 100%;
+}
+
+/* PRODUÇÃO CENTRALIZADA */
+.hero-panel .panel-card:nth-child(3) {
+    grid-column: 1 / -1;   /* ocupa as 2 colunas */
+    justify-self: center;  /* centraliza horizontalmente */
+    width: 45%;            /* reduz tamanho pra ficar bonito */
+    min-width: 220px;
+}
+/* ===================================== */
+/* AJUSTE MODO CLARO (MOBILE + CONSISTÊNCIA) */
+/* ===================================== */
+
+body.light-mode {
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* melhora legibilidade no celular */
+@media (max-width: 768px) {
+
+    body.light-mode .panel-card,
+    body.light-mode .step-card,
+    body.light-mode .benefit-card,
+    body.light-mode .dashboard-card,
+    body.light-mode .tech-card,
+    body.light-mode .quiz-container {
+        background: #f5f9ff;
+        border: 1px solid rgba(0, 119, 255, 0.15);
+    }
+
+    body.light-mode nav {
+        backdrop-filter: blur(10px);
+    }
+}
