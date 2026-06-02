@@ -89,18 +89,38 @@ const ambientSound = document.getElementById('ambientSound');
 
 let playing = false;
 
-soundButton.addEventListener('click', () => {
+// garante carregamento do áudio
+ambientSound.load();
 
-    if (!playing) {
-        ambientSound.play();
-        soundButton.innerHTML = '🔇 Parar';
-        playing = true;
-    } else {
-        ambientSound.pause();
-        soundButton.innerHTML = '🔊 Som';
-        playing = false;
+soundButton.addEventListener('click', async () => {
+
+    try {
+
+        if (!playing) {
+
+            await ambientSound.play();
+
+            playing = true;
+            soundButton.innerHTML = '🔇 Parar';
+
+        } else {
+
+            ambientSound.pause();
+
+            playing = false;
+            soundButton.innerHTML = '🔊 Som';
+
+        }
+
+    } catch (err) {
+        console.log("Erro ao tocar áudio:", err);
+
+        // fallback visual (caso celular bloqueie)
+        soundButton.innerHTML = '🔒 Clique novamente';
     }
+
 });
+
 
 
 /* ===================================== */
@@ -385,3 +405,35 @@ function createParticle() {
 
 // cria partículas continuamente
 setInterval(createParticle, 200);
+/* ===================================== */
+/* ACESSIBILIDADE - TAMANHO DA FONTE */
+/* ===================================== */
+
+let fontSize = 16;
+
+const increaseFont = document.getElementById("increaseFont");
+const decreaseFont = document.getElementById("decreaseFont");
+const resetFont = document.getElementById("resetFont");
+
+function updateFont() {
+    document.documentElement.style.fontSize = fontSize + "px";
+}
+
+increaseFont.addEventListener("click", () => {
+    if (fontSize < 22) {
+        fontSize += 1;
+        updateFont();
+    }
+});
+
+decreaseFont.addEventListener("click", () => {
+    if (fontSize > 12) {
+        fontSize -= 1;
+        updateFont();
+    }
+});
+
+resetFont.addEventListener("click", () => {
+    fontSize = 16;
+    updateFont();
+});
