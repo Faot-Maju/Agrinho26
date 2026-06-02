@@ -385,3 +385,14 @@ function createParticle() {
 
 // cria partículas continuamente
 setInterval(createParticle, 200);
+
+
+header {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* estado escondido */
+header.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
