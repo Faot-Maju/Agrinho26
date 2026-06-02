@@ -2249,3 +2249,14 @@ body.light-mode .particle {
         transform: translateY(-10vh);
     }
 }
+
+
+header {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* estado escondido */
+header.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
