@@ -387,12 +387,22 @@ function createParticle() {
 setInterval(createParticle, 200);
 
 
-header {
-    transition: transform 0.4s ease, opacity 0.4s ease;
-}
 
-/* estado escondido */
-header.hidden {
-    transform: translateY(-100%);
-    opacity: 0;
-}
+const header = document.querySelector("header");
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // descendo → esconde
+        header.classList.add("hidden");
+    } else {
+        // subindo → mostra
+        header.classList.remove("hidden");
+    }
+
+    lastScrollY = currentScrollY;
+});
