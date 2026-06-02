@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        IoT - A Agricultura do Futuro
+    </title>
+
+    <link rel="stylesheet"
+        href="style.css">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="particles"></div>
+
+<!-- ===================================== -->
+<!-- TELA DE INTRODUÇÃO -->
+<!-- ===================================== -->
+
+<div id="introScreen">
+
+    <div class="scan-light"></div>
+
+    <div class="eyes-container">
+
+        <div class="eye"></div>
+
+        <div class="eye"></div>
+
+    </div>
+
+    <h1 class="intro-title">
+        O FUTURO NÃO ESTÁ CHEGANDO
+    </h1>
+
+    <h2 class="intro-subtitle">
+        ELE JÁ COMEÇOU
+    </h2>
+
+    <div class="loading-container">
+
+        <div id="loadingBar"></div>
+
+    </div>
+
+    <span id="loadingText">
+        0%
+    </span>
+
+</div>
+
+<!-- ===================================== -->
+<!-- PARTÍCULAS -->
+<!-- ===================================== -->
+
+<div class="background-grid"></div>
+
+<div class="floating-glow glow1"></div>
+<div class="floating-glow glow2"></div>
+<div class="floating-glow glow3"></div>
+
+<!-- ===================================== -->
+<!-- MENU -->
+<!-- ===================================== -->
+
+<header>
+
+    <nav>
+
+        <div class="logo">
+
+            AGRO<span>AI</span>
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#inicio">
+                    Início
+                </a>
+            </li>
+
+            <li>
+                <a href="#iot">
+                    IoT
+                </a>
+            </li>
+
+            <li>
+                <a href="#dashboard">
+                    Monitoramento
+                </a>
+            </li>
+
+            <li>
+                <a href="#timeline">
+                    Evolução
+                </a>
+            </li>
+
+            <li>
+                <a href="#quiz">
+                    Quiz
+                </a>
+            </li>
+
+        </ul>
+<div class="controls">
+
+    <div class="accessibility-controls">
+
+        <button id="increaseFont">A+</button>
+        <button id="decreaseFont">A-</button>
+        <button id="resetFont">A</button>
+
+    </div>
+
+    <button id="themeButton">
+    🌙 Modo Claro
+</button>
+
+    <button id="soundButton">
+        🔊 Som
+    </button>
+
+</div>
+
+    </nav>
+
+
+
+</header>
+
+<!-- ===================================== -->
+<!-- HERO -->
+<!-- ===================================== -->
+
+<section id="inicio" class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+
+            AGRINHO 2026
+
+        </span>
+
+        <h1>
+
+            A Agricultura
+            do Futuro
+            Já Começou
+
+        </h1>
+
+        <p>
+
+            Sensores inteligentes,
+            drones, satélites e
+            inteligência artificial
+            estão transformando
+            completamente o campo.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#iot">
+
+                Explorar
+
+            </a>
+
+            <a href="#quiz">
+
+                Fazer Quiz
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-panel">
+
+        <div class="panel-card">
+
+            <span>
+                UMIDADE
+            </span>
+
+            <h2 id="humidityValue">
+
+                76%
+
+            </h2>
+
+        </div>
+
+        <div class="panel-card">
+
+            <span>
+                TEMPERATURA
+            </span>
+
+            <h2 id="tempValue">
+
+                24°C
+
+            </h2>
+
+        </div>
+
+        <div class="panel-card">
+
+            <span>
+                PRODUÇÃO
+            </span>
+
+            <h2 id="productionValue">
+
+                +18%
+
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================== -->
+<!-- O QUE É IOT -->
+<!-- ===================================== -->
+
+<section id="iot" class="section">
+
+    <div class="section-title">
+
+        <span>TECNOLOGIA</span>
+
+        <h2>
+            O que é IoT?
+        </h2>
+
+    </div>
+
+    <div class="iot-container">
+
+        <div class="iot-text">
+
+            <p>
+
+                IoT significa Internet das Coisas.
+                É uma tecnologia que permite que
+                dispositivos físicos se conectem
+                à internet para coletar, enviar e
+                compartilhar informações em tempo real.
+
+            </p>
+
+            <p>
+
+                Na agricultura, sensores instalados
+                no solo, drones e estações climáticas
+                trabalham juntos para aaudar os
+                produtores a tomarem decisões mais
+                rápidas e eficientes.
+
+            </p>
+
+        </div>
+
+        <div class="iot-card">
+
+            <h3>
+
+                Agricultura Inteligente
+
+            </h3>
+
+            <p>
+
+                Sensores monitoram:
+                temperatura,
+                umidade,
+                nutrientes do solo
+                e condições climáticas.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- COMO FUNCIONA -->
+<!-- ===================================== -->
+
+<section class="section dark-section">
+
+    <div class="section-title">
+
+        <span>PROCESSO</span>
+
+        <h2>
+            Como Funciona?
+        </h2>
+
+    </div>
+
+    <div class="steps">
+
+        <div class="step-card">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Coleta
+            </h3>
+
+            <p>
+
+                Sensores espalhados pela fazenda
+                coletam informações continuamente.
+
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Transmissão
+            </h3>
+
+            <p>
+
+                Os dados são enviados para
+                plataformas digitais através
+                da internet.
+
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                Análise
+            </h3>
+
+            <p>
+
+                Inteligência artificial interpreta
+                os dados e identifica padrões.
+
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <h3>
+                Ação
+            </h3>
+
+            <p>
+
+                O sistema sugere ou executa
+                ações automaticamente.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- BENEFÍCIOS -->
+<!-- ===================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>VANTAGENS</span>
+
+        <h2>
+            Benefícios da IoT
+        </h2>
+
+    </div>
+
+    <div class="benefits-grid">
+
+        <div class="benefit-card">
+
+            <h3>
+                💧 Economia de Água
+            </h3>
+
+            <p>
+
+                Irrigação inteligente reduz
+                desperdícios e melhora a eficiência.
+
+            </p>
+
+        </div>
+
+        <div class="benefit-card">
+
+            <h3>
+                🌱 Maior Produtividade
+            </h3>
+
+            <p>
+
+                Decisões baseadas em dados
+                aumentam a produção agrícola.
+
+            </p>
+
+        </div>
+
+        <div class="benefit-card">
+
+            <h3>
+                📡 Monitoramento Remoto
+            </h3>
+
+            <p>
+
+                O produtor acompanha a fazenda
+                de qualquer lugar.
+
+            </p>
+
+        </div>
+
+        <div class="benefit-card">
+
+            <h3>
+                🤖 Automação
+            </h3>
+
+            <p>
+
+                Sistemas inteligentes executam
+                tarefas automaticamente.
+
+            </p>
+
+        </div>
+
+        <div class="benefit-card">
+
+            <h3>
+                🌎 Sustentabilidade
+            </h3>
+
+            <p>
+
+                Menor desperdício de recursos
+                naturais e maior preservação ambiental.
+
+            </p>
+
+        </div>
+
+        <div class="benefit-card">
+
+            <h3>
+                🚜 Agricultura de Precisão
+            </h3>
+
+            <p>
+
+                Aplicação exata de água,
+                fertilizantes e defensivos.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================== -->
+<!-- DASHBOARD -->
+<!-- ===================================== -->
+
+<section id="dashboard" class="section dark-section">
+
+    <div class="section-title">
+
+        <span>MONITORAMENTO</span>
+
+        <h2>
+            Dashboard Inteligente
+        </h2>
+
+    </div>
+
+    <div class="dashboard-grid">
+
+        <div class="dashboard-card">
+
+            <span>
+                Umidade do Solo
+            </span>
+
+            <h3 id="soilHumidity">
+
+                78%
+
+            </h3>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <span>
+                Temperatura
+            </span>
+
+            <h3 id="temperature">
+
+                25°C
+
+            </h3>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <span>
+                Irrigação
+            </span>
+
+            <h3 id="irrigation">
+
+                Ativa
+
+            </h3>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <span>
+                Eficiência
+            </span>
+
+            <h3 id="efficiency">
+
+                94%
+
+            </h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- ESTATÍSTICAS -->
+<!-- ===================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>DADOS</span>
+
+        <h2>
+            Resultados da Agricultura Inteligente
+        </h2>
+
+    </div>
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+
+            <h2 class="counter"
+                data-target="40">
+
+                0
+
+            </h2>
+
+            <span>
+
+                % Menos Desperdício de Água
+
+            </span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2 class="counter"
+                data-target="30">
+
+                0
+
+            </h2>
+
+            <span>
+
+                % Mais Produtividade
+
+            </span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2 class="counter"
+                data-target="24">
+
+                0
+
+            </h2>
+
+            <span>
+
+                Horas de Monitoramento
+
+            </span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2 class="counter"
+                data-target="100">
+
+                0
+
+            </h2>
+
+            <span>
+
+                % Conectado
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- IA -->
+<!-- ===================================== -->
+
+<section id="ia" class="section dark-section">
+
+    <div class="section-title">
+
+        <span>INTELIGÊNCIA ARTIFICIAL</span>
+
+        <h2>
+            Central de Decisão
+        </h2>
+
+    </div>
+
+    <div class="ai-panel">
+
+        <div class="ai-header">
+
+            <div class="online-indicator"></div>
+
+            IA AGRÍCOLA ONLINE
+
+        </div>
+
+        <div id="aiMessage">
+
+            Sistema iniciado...
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- TECNOLOGIAS -->
+<!-- ===================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>TECNOLOGIAS</span>
+
+        <h2>
+            Ferramentas do Futuro
+        </h2>
+
+    </div>
+
+    <div class="tech-grid">
+
+        <div class="tech-card">
+
+            <img src="img/drone.png"
+                alt="Drone">
+
+            <h3>
+                Drone Agrícola
+            </h3>
+
+            <p>
+
+                Monitora plantações,
+                detecta falhas e auxilia
+                na pulverização.
+
+            </p>
+
+        </div>
+
+        <div class="tech-card">
+
+            <img src="img/sensor.png"
+                alt="Sensor">
+
+            <h3>
+                Sensores IoT
+            </h3>
+
+            <p>
+
+                Coletam dados sobre solo,
+                clima e produtividade.
+
+            </p>
+
+        </div>
+
+        <div class="tech-card">
+
+            <img src="img/satelite.png"
+                alt="Satélite">
+
+            <h3>
+                Satélites
+
+            </h3>
+
+            <p>
+
+                Fornecem imagens e
+                informações climáticas.
+
+            </p>
+
+        </div>
+
+        <div class="tech-card">
+
+            <img src="img/trator.png"
+                alt="Trator">
+
+            <h3>
+                Trator Autônomo
+            </h3>
+
+            <p>
+
+                Executa tarefas com
+                precisão e eficiência.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================== -->
+<!-- TIMELINE -->
+<!-- ===================================== -->
+
+<section id="timeline" class="section dark-section">
+
+    <div class="section-title">
+
+        <span>EVOLUÇÃO</span>
+
+        <h2>
+            A Evolução da Agricultura
+        </h2>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Agricultura 1.0
+                </h3>
+
+                <p>
+
+                    Trabalho manual e
+                    ferramentas simples.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Agricultura 2.0
+                </h3>
+
+                <p>
+
+                    Máquinas agrícolas e
+                    mecanização do campo.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Agricultura 3.0
+                </h3>
+
+                <p>
+
+                    GPS, sensores e
+                    agricultura de precisão.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Agricultura 4.0
+                </h3>
+
+                <p>
+
+                    IoT, inteligência artificial
+                    e automação.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot future-dot"></div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Futuro
+                </h3>
+
+                <p>
+
+                    Fazendas inteligentes
+                    totalmente conectadas.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- GALERIA -->
+<!-- ===================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>GALERIA</span>
+
+        <h2>
+            Tecnologias em Destaque
+        </h2>
+
+    </div>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-card">
+
+            <img src="img/drone2.jpg"
+                alt="Drone">
+
+            <div class="gallery-overlay">
+
+                <h3>
+                    Drone Agrícola
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="gallery-card">
+
+            <img src="img/sensor2.jpg"
+                alt="Sensor">
+
+            <div class="gallery-overlay">
+
+                <h3>
+                    Sensores
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="gallery-card">
+
+            <img src="img/iot.jpg"
+                alt="IoT">
+
+            <div class="gallery-overlay">
+
+                <h3>
+                    IoT Rural
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="gallery-card">
+
+            <img src="img/fazenda.jpg"
+                alt="Fazenda">
+
+            <div class="gallery-overlay">
+
+                <h3>
+                    Fazenda Inteligente
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- BRASIL -->
+<!-- ===================================== -->
+
+<section class="section dark-section">
+
+    <div class="section-title">
+
+        <span>BRASIL</span>
+
+        <h2>
+            IoT Pelo País
+        </h2>
+
+    </div>
+
+    <div class="brazil-grid">
+
+        <div class="state-box">
+
+            <h3>
+                Paraná
+            </h3>
+
+            <p>
+
+                Agricultura de precisão
+                e monitoramento climático.
+
+            </p>
+
+        </div>
+
+        <div class="state-box">
+
+            <h3>
+                Mato Grosso
+            </h3>
+
+            <p>
+
+                Uso intensivo de drones
+                e sensores agrícolas.
+
+            </p>
+
+        </div>
+
+        <div class="state-box">
+
+            <h3>
+                Goiás
+            </h3>
+
+            <p>
+
+                Automação e irrigação
+                inteligente.
+
+            </p>
+
+        </div>
+
+        <div class="state-box">
+
+            <h3>
+                São Paulo
+            </h3>
+
+            <p>
+
+                Análise de dados e
+                agricultura digital.
+
+            </p>
+
+        </div>
+
+        <div class="state-box">
+
+            <h3>
+                Rio Grande do Sul
+            </h3>
+
+            <p>
+
+                Sensoriamento climático
+                avançado.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================== -->
+<!-- QUIZ -->
+<!-- ===================================== -->
+
+<section id="quiz" class="section">
+
+    <div class="section-title">
+
+        <span>QUIZ</span>
+
+        <h2>
+            Teste Seus Conhecimentos
+        </h2>
+
+    </div>
+
+    <div class="quiz-container">
+
+        <div id="question">
+
+            Carregando pergunta...
+
+        </div>
+
+        <div id="answers">
+
+        </div>
+
+        <div id="explanation">
+
+        </div>
+
+        <div id="score">
+
+            Pontuação: 0
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- ASSISTENTE IA -->
+<!-- ===================================== -->
+
+<section class="section dark-section">
+
+    <div class="section-title">
+
+        <span>ASSISTENTE</span>
+
+        <h2>
+            Pergunte à IA
+        </h2>
+
+    </div>
+
+    <div class="assistant-container">
+
+        <input
+            type="text"
+            id="questionInput"
+            placeholder="Digite sua pergunta">
+
+        <button id="askButton">
+
+            Perguntar
+
+        </button>
+
+        <div id="answerBox">
+
+            Faça uma pergunta sobre IoT.
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- CERTIFICADO -->
+<!-- ===================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>CERTIFICADO</span>
+
+        <h2>
+            Gere Seu Certificado
+        </h2>
+
+    </div>
+
+    <div class="certificate-generator">
+
+        <input
+            type="text"
+            id="studentName"
+            placeholder="Digite seu nome">
+
+        <button id="generateCertificate">
+
+            Gerar Certificado
+
+        </button>
+
+    </div>
+
+    <div id="certificate">
+
+        <div class="certificate-content">
+
+            <h1>
+
+                CERTIFICADO
+
+            </h1>
+
+            <p>
+
+                Certificamos que
+
+            </p>
+
+            <h2 id="certificateName">
+
+            </h2>
+
+            <p>
+
+                concluiu a experiência
+                educativa sobre
+
+            </p>
+
+            <h3>
+
+                IoT: A Agricultura do Futuro
+
+            </h3>
+
+            <span>
+
+                Agrinho 2026
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- CONQUISTAS -->
+<!-- ===================================== -->
+
+<section class="section dark-section">
+
+    <div class="section-title">
+
+        <span>CONQUISTAS</span>
+
+        <h2>
+            Evolução do Visitante
+        </h2>
+
+    </div>
+
+    <div class="badges">
+
+        <div class="badge unlocked">
+
+            🌱 Explorador
+
+        </div>
+
+        <div class="badge">
+
+            📡 Especialista IoT
+
+        </div>
+
+        <div class="badge">
+
+            🚁 Mestre dos Drones
+
+        </div>
+
+        <div class="badge">
+
+            🤖 Engenheiro do Futuro
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- ENCERRAMENTO -->
+<!-- ===================================== -->
+
+<section class="final-section">
+
+    <div class="final-content">
+
+        <span>
+
+            AGRINHO 2026
+
+        </span>
+
+        <h1>
+
+            O Futuro Já Começou
+
+        </h1>
+
+        <p>
+
+            A Internet das Coisas está
+            transformando o campo em um
+            ambiente mais inteligente,
+            sustentável e produtivo.
+
+        </p>
+
+        <button id="backTop">
+
+            Voltar ao Topo
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- FOOTER -->
+<!-- ===================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3>
+
+            IoT: A Agricultura do Futuro
+
+        </h3>
+
+        <p>
+
+            Projeto desenvolvido para o
+            Programa Agrinho 2026.
+
+        </p>
+
+        <p>
+
+            Autora: Maria Julia Faot
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- ===================================== -->
+<!-- ÁUDIO -->
+<!-- ===================================== -->
+
+<audio id="ambientSound" loop>
+
+    <source
+        src="audio/futuro.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
