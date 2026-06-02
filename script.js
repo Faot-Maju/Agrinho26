@@ -34,6 +34,28 @@ const loadingInterval = setInterval(() => {
 
 
 /* ===================================== */
+/* HEADER AUTO HIDE */
+/* ===================================== */
+
+const header = document.querySelector("header");
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        header.classList.add("hidden");
+    } else {
+        header.classList.remove("hidden");
+    }
+
+    lastScrollY = currentScrollY;
+});
+
+
+/* ===================================== */
 /* DASHBOARD (CLIMA REAL MARINGÁ) */
 /* ===================================== */
 
@@ -50,11 +72,11 @@ async function updateDashboard() {
 
     try {
 
-        const response = await fetch(
+        const res = await fetch(
             "https://api.open-meteo.com/v1/forecast?latitude=-23.42&longitude=-51.93&current=temperature_2m,relative_humidity_2m"
         );
 
-        const data = await response.json();
+        const data = await res.json();
 
         const temp = data.current.temperature_2m;
         const humidity = data.current.relative_humidity_2m;
@@ -72,7 +94,7 @@ async function updateDashboard() {
         irrigation.innerHTML = humidity < 70 ? 'Ativa' : 'Desligada';
 
     } catch (e) {
-        console.log("Erro API clima", e);
+        console.log("Erro clima:", e);
     }
 }
 
@@ -81,26 +103,54 @@ setInterval(updateDashboard, 60000);
 
 
 /* ===================================== */
-/* SOM */
+/* SOM (CORRIGIDO MOBILE) */
 /* ===================================== */
 
-const soundButton = document.getElementById('soundButton');
-const ambientSound = document.getElementById('ambientSound');
+const soundButton = document.getElementById("soundButton");
+const ambientSound = document.getElementById("ambientSound");
 
 let playing = false;
 
-soundButton.addEventListener('click', () => {
+// desbloqueio obrigatório mobile
+document.addEventListener("click", () => {
+    ambientSound.play().then(() => {
+        ambientSound.pause();
+        ambientSound.currentTime = 0;
+    }).catch(() => {});
+}, { once: true });
+
+soundButton.addEventListener("click", () => {
 
     if (!playing) {
         ambientSound.play();
-        soundButton.innerHTML = '🔇 Parar';
+        soundButton.innerHTML = "🔇 Parar";
         playing = true;
     } else {
         ambientSound.pause();
-        soundButton.innerHTML = '🔊 Som';
+        soundButton.innerHTML = "🔊 Som";
         playing = false;
     }
 });
+
+
+/* ===================================== */
+/* ACESSIBILIDADE (TEXTO GRANDE) */
+/* ===================================== */
+
+const fontButton = document.getElementById("fontButton");
+
+let largeText = false;
+
+if (fontButton) {
+    fontButton.addEventListener("click", () => {
+
+        largeText = !largeText;
+
+        document.body.classList.toggle("large-text");
+
+        fontButton.innerHTML = largeText ? "🔎 A-" : "🔎 A+";
+    });
+}
 
 
 /* ===================================== */
@@ -152,14 +202,14 @@ const aiMessage = document.getElementById('aiMessage');
 const aiMessages = [
     "Sensores indicam solo com boa umidade.",
     "IA recomenda irrigação leve pela manhã.",
-    "Drones completaram análise da lavoura.",
+    "Drones analisaram a lavoura com sucesso.",
     "Condições climáticas estáveis no Paraná.",
     "Produtividade acima da média regional."
 ];
 
 function updateAI() {
-    const index = Math.floor(Math.random() * aiMessages.length);
-    aiMessage.innerHTML = aiMessages[index];
+    const i = Math.floor(Math.random() * aiMessages.length);
+    aiMessage.innerHTML = aiMessages[i];
 }
 
 updateAI();
@@ -200,13 +250,13 @@ document.addEventListener('mousemove', (e) => {
     const x = (e.clientX / window.innerWidth - 0.5) * 20;
     const y = (e.clientY / window.innerHeight - 0.5) * 20;
 
-    document.querySelector('.glow1').style.transform =
-        `translate(${x}px,${y}px)`;
+    const g1 = document.querySelector('.glow1');
+    const g2 = document.querySelector('.glow2');
+    const g3 = document.querySelector('.glow3');
 
-    document.querySelector('.glow2').style.transform =
-        `translate(${-x}px,${-y}px)`;
-
-    document.querySelector('.glow3').style.transform =
+    if (g1) g1.style.transform = `translate(${x}px,${y}px)`;
+    if (g2) g2.style.transform = `translate(${-x}px,${-y}px)`;
+    if (g3) g3.style.transform =
         `translate(calc(-50% + ${x / 2}px), calc(-50% + ${y / 2}px))`;
 });
 
@@ -218,21 +268,21 @@ document.addEventListener('mousemove', (e) => {
 const questions = [
     {
         question: "O que é IoT?",
-        answers: ["Internet das Coisas", "Sistema manual", "Rede offline", "Agricultura antiga"],
+        answers: ["Internet das Coisas", "Rede offline", "Sistema manual", "Agricultura antiga"],
         correct: 0,
         explanation: "IoT conecta dispositivos à internet."
     },
     {
-        question: "Para que servem sensores?",
-        answers: ["Monitorar solo", "Plantar sozinho", "Vender produtos", "Subir preço"],
+        question: "Função dos sensores?",
+        answers: ["Monitorar solo", "Vender produtos", "Criar plantas", "Nenhuma"],
         correct: 0,
-        explanation: "Sensores monitoram solo e clima."
+        explanation: "Sensores coletam dados do ambiente."
     },
     {
-        question: "O que drones fazem?",
-        answers: ["Monitoram plantações", "Cavam solo", "Colhem manualmente", "Nada"],
+        question: "Drones servem para?",
+        answers: ["Monitorar lavouras", "Cavar solo", "Cozinhar", "Nada"],
         correct: 0,
-        explanation: "Drones ajudam no monitoramento agrícola."
+        explanation: "Drones ajudam na agricultura moderna."
     }
 ];
 
@@ -275,6 +325,7 @@ function loadQuestion() {
             scoreEl.innerHTML = "Pontuação: " + score;
 
             setTimeout(() => {
+
                 currentQuestion++;
 
                 if (currentQuestion < questions.length) {
@@ -295,7 +346,7 @@ function loadQuestion() {
     });
 }
 
-loadQuestion();
+if (questionEl) loadQuestion();
 
 
 /* ===================================== */
@@ -318,91 +369,22 @@ unlockBadge(0);
 /* CERTIFICADO */
 /* ===================================== */
 
-document.getElementById('generateCertificate').addEventListener('click', () => {
+const certBtn = document.getElementById('generateCertificate');
 
-    const name = document.getElementById('studentName').value;
+if (certBtn) {
+    certBtn.addEventListener('click', () => {
 
-    if (!name.trim()) {
-        alert("Digite seu nome");
-        return;
-    }
+        const name = document.getElementById('studentName').value;
 
-    document.getElementById('certificateName').innerHTML = name;
-    document.getElementById('certificate').style.display = 'block';
+        if (!name.trim()) {
+            alert("Digite seu nome");
+            return;
+        }
 
-    document.getElementById('certificate')
-        .scrollIntoView({ behavior: 'smooth' });
-});
+        document.getElementById('certificateName').innerHTML = name;
+        document.getElementById('certificate').style.display = 'block';
 
-
-const themeButton = document.getElementById("themeButton");
-
-let lightMode = false;
-
-themeButton.addEventListener("click", () => {
-
-    lightMode = !lightMode;
-
-    document.body.classList.toggle("light-mode");
-
-    themeButton.style.transition = "0.3s";
-
-    if (lightMode) {
-        themeButton.innerHTML = "🌙 Modo Escuro";
-    } else {
-        themeButton.innerHTML = "☀️ Modo Claro";
-    }
-
-});
-
-
-const particlesContainer = document.getElementById("particles");
-
-function createParticle() {
-
-    const particle = document.createElement("div");
-    particle.classList.add("particle");
-
-    // posição aleatória
-    particle.style.left = Math.random() * 100 + "vw";
-
-    // tamanho variado
-    const size = Math.random() * 3 + 2;
-    particle.style.width = size + "px";
-    particle.style.height = size + "px";
-
-    // duração da animação
-    const duration = Math.random() * 10 + 8;
-    particle.style.animationDuration = duration + "s";
-
-    particlesContainer.appendChild(particle);
-
-    // remove depois de subir
-    setTimeout(() => {
-        particle.remove();
-    }, duration * 1000);
+        document.getElementById('certificate')
+            .scrollIntoView({ behavior: 'smooth' });
+    });
 }
-
-// cria partículas continuamente
-setInterval(createParticle, 200);
-
-
-
-const header = document.querySelector("header");
-
-let lastScrollY = window.scrollY;
-
-window.addEventListener("scroll", () => {
-
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        // descendo → esconde
-        header.classList.add("hidden");
-    } else {
-        // subindo → mostra
-        header.classList.remove("hidden");
-    }
-
-    lastScrollY = currentScrollY;
-});
