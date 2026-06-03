@@ -78,50 +78,24 @@ async function updateDashboard() {
 
 updateDashboard();
 setInterval(updateDashboard, 60000);
-
-
 /* ===================================== */
-/* SOM */
+/* VOLTAR AO TOPO */
 /* ===================================== */
 
-const soundButton = document.getElementById('soundButton');
-const ambientSound = document.getElementById('ambientSound');
+const backTop = document.getElementById("backTop");
 
-let playing = false;
+if (backTop) {
 
-// garante carregamento do áudio
-ambientSound.load();
+    backTop.addEventListener("click", () => {
 
-soundButton.addEventListener('click', async () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
-    try {
+    });
 
-        if (!playing) {
-
-            await ambientSound.play();
-
-            playing = true;
-            soundButton.innerHTML = '🔇 Parar';
-
-        } else {
-
-            ambientSound.pause();
-
-            playing = false;
-            soundButton.innerHTML = '🔊 Som';
-
-        }
-
-    } catch (err) {
-        console.log("Erro ao tocar áudio:", err);
-
-        // fallback visual (caso celular bloqueie)
-        soundButton.innerHTML = '🔒 Clique novamente';
-    }
-
-});
-
-
+}
 
 /* ===================================== */
 /* CONTADORES */
@@ -437,3 +411,204 @@ resetFont.addEventListener("click", () => {
     fontSize = 16;
     updateFont();
 });
+/* ===================================== */
+/* ASSISTENTE IA */
+/* ===================================== */
+
+const askButton = document.getElementById("askButton");
+const questionInput = document.getElementById("questionInput");
+const answerBox = document.getElementById("answerBox");
+
+const knowledgeBase = {
+
+    iot: [
+        "IoT significa Internet das Coisas. É uma tecnologia que conecta dispositivos físicos à internet para coletar, compartilhar e analisar dados em tempo real.",
+
+        "Na agricultura, a IoT permite que sensores monitorem temperatura, umidade do solo, clima e desempenho das máquinas automaticamente.",
+
+        "A principal vantagem da IoT é permitir decisões mais rápidas e precisas, reduzindo desperdícios e aumentando a produtividade."
+    ],
+
+    sensores: [
+        "Sensores são dispositivos capazes de coletar informações do ambiente, como temperatura, umidade, luminosidade e nutrientes do solo.",
+
+        "Na Agricultura 4.0, sensores ajudam os produtores a acompanhar a lavoura em tempo real e identificar problemas antes que causem prejuízos.",
+
+        "Com sensores conectados à internet, é possível automatizar sistemas de irrigação e monitoramento agrícola."
+    ],
+
+    drones: [
+        "Drones são aeronaves não tripuladas utilizadas para monitorar plantações, identificar falhas e acompanhar o desenvolvimento das culturas.",
+
+        "Com câmeras especiais, drones conseguem detectar áreas com falta de água, pragas ou doenças nas plantas.",
+
+        "Os drones ajudam a reduzir custos e aumentam a precisão das análises agrícolas."
+    ],
+
+    ia: [
+        "A Inteligência Artificial analisa grandes quantidades de dados e identifica padrões que ajudam os agricultores a tomar decisões mais eficientes.",
+
+        "A IA pode prever condições climáticas, identificar doenças em plantações e recomendar o melhor momento para irrigação.",
+
+        "Na Agricultura 4.0, a Inteligência Artificial trabalha em conjunto com sensores, drones e sistemas automatizados."
+    ],
+
+    agricultura: [
+        "A Agricultura 4.0 representa a modernização do campo por meio de tecnologias digitais como IoT, Inteligência Artificial, Big Data e automação.",
+
+        "Seu principal objetivo é aumentar a produtividade ao mesmo tempo em que reduz desperdícios de água, energia e insumos.",
+
+        "A Agricultura 4.0 permite um controle mais preciso de toda a produção agrícola."
+    ],
+
+    beneficios: [
+        "Entre os principais benefícios estão a economia de recursos, aumento da produtividade e redução de custos operacionais.",
+
+        "A tecnologia permite identificar problemas rapidamente e agir antes que eles afetem a produção.",
+
+        "Com dados mais precisos, o agricultor consegue tomar decisões mais seguras e eficientes."
+    ],
+
+    irrigacao: [
+        "A irrigação inteligente utiliza sensores para identificar exatamente quando e quanto irrigar uma plantação.",
+
+        "Esse sistema reduz o desperdício de água e melhora o desenvolvimento das culturas.",
+
+        "A automação da irrigação é uma das aplicações mais importantes da IoT na agricultura."
+    ],
+
+    clima: [
+        "O monitoramento climático ajuda os agricultores a planejar melhor o plantio, a irrigação e a colheita.",
+
+        "Sensores meteorológicos conseguem registrar temperatura, umidade e previsão de chuva em tempo real.",
+
+        "Com essas informações é possível reduzir perdas causadas por condições climáticas adversas."
+    ]
+};
+
+function getRandomResponse(array) {
+
+    const shuffled =
+        [...array].sort(() => Math.random() - 0.5);
+
+    return shuffled.slice(0, 2).join("<br><br>");
+
+}
+
+askButton.addEventListener("click", () => {
+
+    const question = questionInput.value
+        .trim()
+        .toLowerCase();
+
+    if (!question) {
+
+        answerBox.innerHTML =
+            "Digite uma pergunta para a IA.";
+
+        return;
+    }
+
+    let response = "";
+
+    if (
+        question.includes("iot")
+    ) {
+        response = getRandomResponse(knowledgeBase.iot);
+    }
+
+    else if (
+        question.includes("sensor")
+    ) {
+        response = getRandomResponse(knowledgeBase.sensores);
+    }
+
+    else if (
+        question.includes("drone")
+    ) {
+        response = getRandomResponse(knowledgeBase.drones);
+    }
+
+    else if (
+        question.includes("inteligência artificial") ||
+        question.includes("ia")
+    ) {
+        response = getRandomResponse(knowledgeBase.ia);
+    }
+
+    else if (
+        question.includes("agricultura")
+    ) {
+        response = getRandomResponse(knowledgeBase.agricultura);
+    }
+
+    else if (
+        question.includes("benefício") ||
+        question.includes("vantagem")
+    ) {
+        response = getRandomResponse(knowledgeBase.beneficios);
+    }
+
+    else if (
+        question.includes("irrigação") ||
+        question.includes("irrigacao")
+    ) {
+        response = getRandomResponse(knowledgeBase.irrigacao);
+    }
+
+    else if (
+        question.includes("clima") ||
+        question.includes("tempo")
+    ) {
+        response = getRandomResponse(knowledgeBase.clima);
+    }
+
+    else {
+
+        response =
+            "Não encontrei uma resposta específica. Tente perguntar sobre IoT, sensores, drones, clima, irrigação, Inteligência Artificial ou Agricultura 4.0.";
+    }
+
+    answerBox.innerHTML = response;
+
+    questionInput.value = "";
+    questionInput.focus();
+
+});
+
+questionInput.addEventListener("keydown", (e) => {
+
+    if (e.key === "Enter") {
+        askButton.click();
+    }
+
+});
+
+const particles = document.getElementById("particles");
+
+for(let i = 0; i < 35; i++){
+
+    const bubble = document.createElement("div");
+
+    bubble.classList.add("particle");
+
+    const size = Math.random() * 50 + 10;
+
+    bubble.style.width = size + "px";
+    bubble.style.height = size + "px";
+
+    bubble.style.left = Math.random() * 100 + "%";
+
+    bubble.style.animationDuration =
+        (Math.random() * 20 + 12) + "s";
+
+    bubble.style.animationDelay =
+        Math.random() * 10 + "s";
+
+    bubble.style.opacity =
+        Math.random() * 0.5 + 0.2;
+
+    particles.appendChild(bubble);
+
+}
+
