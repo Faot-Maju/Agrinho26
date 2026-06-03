@@ -533,14 +533,46 @@ nav a:hover{
 /* HERO PAINEL */
 /* ===================================== */
 
-.hero-panel{
+@media (max-width:768px){
 
-    display:grid;
+    .hero-panel{
 
-    grid-template-columns:
-    repeat(2,1fr);
+        grid-template-columns:1fr;
 
-    gap:25px;
+        width:100%;
+
+    }
+
+    .hero-panel .panel-card{
+
+        width:100% !important;
+
+        min-width:0;
+
+    }
+
+    .hero-panel .panel-card:nth-child(3){
+
+        grid-column:auto;
+
+        width:100% !important;
+
+    }
+
+}
+@media (max-width:768px){
+
+    .hero{
+
+        padding-top:120px;
+
+    }
+
+    nav ul{
+
+        display:none;
+
+    }
 
 }
 
@@ -2365,4 +2397,27 @@ body.light-mode {
     body.light-mode nav {
         backdrop-filter: blur(10px);
     }
+}
+@media (max-width:768px){
+
+    header{
+        transition: transform .3s ease;
+    }
+
+    header.hide{
+        transform: translateY(-100%);
+    }
+
+}
+/* ===================================== */
+/* HEADER MOBILE */
+/* ===================================== */
+
+@media (max-width: 768px){
+
+    header{
+        transform: translateY(-100%);
+        transition: 0.4s;
+    }
+
 }
