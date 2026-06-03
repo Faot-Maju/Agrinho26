@@ -2401,23 +2401,11 @@ body.light-mode {
 @media (max-width:768px){
 
     header{
-        transition: transform .3s ease;
+        transition: transform .4s ease;
     }
 
     header.hide{
         transform: translateY(-100%);
-    }
-
-}
-/* ===================================== */
-/* HEADER MOBILE */
-/* ===================================== */
-
-@media (max-width: 768px){
-
-    header{
-        transform: translateY(-100%);
-        transition: 0.4s;
     }
 
 }
