@@ -92,59 +92,75 @@ body{
 }
 
 /* ===================================== */
-/* GLOWS */
+/* BOLHAS */
 /* ===================================== */
 
-.floating-glow{
+.particle{
 
-    position:fixed;
+    position:absolute;
 
     border-radius:50%;
 
-    filter:blur(120px);
+    background:
+    radial-gradient(
+        circle at 30% 30%,
+        rgba(255,255,255,.9),
+        rgba(255,255,255,.25) 20%,
+        rgba(0,217,255,.12) 60%,
+        transparent 100%
+    );
 
-    opacity:.15;
+    border:1px solid rgba(255,255,255,.2);
 
-    z-index:-9;
+    backdrop-filter:blur(2px);
 
-}
-
-.glow1{
-
-    width:500px;
-    height:500px;
-
-    background:#00d9ff;
-
-    top:-100px;
-    left:-100px;
+    animation: bubbleFloat linear infinite;
 
 }
 
-.glow2{
+@keyframes bubbleFloat{
 
-    width:400px;
-    height:400px;
+    0%{
 
-    background:#00ffae;
+        transform:
+        translateY(110vh)
+        translateX(0px);
 
-    bottom:-100px;
-    right:-100px;
+        opacity:0;
 
-}
+    }
 
-.glow3{
+    10%{
 
-    width:350px;
-    height:350px;
+        opacity:.7;
 
-    background:#0084ff;
+    }
 
-    top:50%;
+    30%{
 
-    left:50%;
+        transform:
+        translateY(70vh)
+        translateX(-30px);
 
-    transform:translate(-50%,-50%);
+    }
+
+    60%{
+
+        transform:
+        translateY(30vh)
+        translateX(40px);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-20vh)
+        translateX(-20px);
+
+        opacity:0;
+
+    }
 
 }
 
