@@ -619,10 +619,16 @@ window.addEventListener("scroll", () => {
 
     if(window.innerWidth <= 768){
 
-        const currentScroll = window.pageYOffset;
+        const currentScroll = window.scrollY;
 
-        if(currentScroll > lastScroll){
-            header.classList.add("hide");
+        if(currentScroll > 100){
+
+            if(currentScroll > lastScroll){
+                header.classList.add("hide");
+            }else{
+                header.classList.remove("hide");
+            }
+
         }else{
             header.classList.remove("hide");
         }
