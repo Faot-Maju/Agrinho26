@@ -612,3 +612,22 @@ for(let i = 0; i < 35; i++){
 
 }
 
+let lastScroll = 0;
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if(window.innerWidth <= 768){
+
+        const currentScroll = window.pageYOffset;
+
+        if(currentScroll > lastScroll){
+            header.classList.add("hide");
+        }else{
+            header.classList.remove("hide");
+        }
+
+        lastScroll = currentScroll;
+    }
+
+});
