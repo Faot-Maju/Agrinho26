@@ -2403,15 +2403,3 @@ body.light-mode {
     }
 
 }
-/* ===================================== */
-/* HEADER MOBILE */
-/* ===================================== */
-
-@media (max-width: 768px){
-
-    header{
-        transform: translateY(-100%);
-        transition: 0.4s;
-    }
-
-}
